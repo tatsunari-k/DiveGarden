@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 //不明
+//https://www.urablog.xyz/entry/2017/04/28/213010
 
 public class MouseDrag : MonoBehaviour
 {

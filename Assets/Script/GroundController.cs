@@ -6,7 +6,7 @@ using UnityEngine;
 //配列を利用して、床面を作成するスクリプト。
 
 public class GroundController : MonoBehaviour {
-    private float y = 0.5f;
+    private int y = 0;
 
     //GroundsPrefabを入れる
     public GameObject GroundPrefab;

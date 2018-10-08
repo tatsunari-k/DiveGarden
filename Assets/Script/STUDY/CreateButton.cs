@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//ボタンを押したのログを吐き出すスクリプト
+//
+
 public class CreateButton : MonoBehaviour{
 
     //Animation anim;

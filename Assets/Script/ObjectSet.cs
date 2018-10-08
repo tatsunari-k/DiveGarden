@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
-    //画面上でポインターで指した場所に指定のオブジェクトをセットするスクリプト。
-    //追随する
+
+//画面上でポインターで指した場所に指定のオブジェクトをセットするスクリプト。
+//追随する
+//https://www.urablog.xyz/entry/2017/04/28/213010
 
 public class ObjectSet : MonoBehaviour {
 

@@ -2,6 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
+//あるオブジェクトに追随して表示されるGUIスクリプト
+//SpaceScreen-orverlayのcanvasを持つオブジェクト内の動かしたいオブジェクトにアタッチして使用する。
+
 public class UIFollowTargetTest : MonoBehaviour
 {
     //変数定義。

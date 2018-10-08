@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//クリックしてRayを飛ばし、衝突したオブジェクトの座標を取得。その上にオブジェクトを設置するスクリプト
+
 public class ObjectBuild : MonoBehaviour {
 
     //GroundsPrefabを入れる
@@ -33,6 +36,8 @@ public class ObjectBuild : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //CreateObject変数(積み上げるオブジェクトを選択したものを設定できるように調整)
+        //CreateObject = 
 
     }
 
