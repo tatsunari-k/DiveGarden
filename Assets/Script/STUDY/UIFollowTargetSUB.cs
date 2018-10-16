@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //http://tsubakit1.hateblo.jp/entry/2016/03/01/020510
 
 
-public class UIFollowTarget : MonoBehaviour
+public class UIFollowTargetSUB: MonoBehaviour
 {
 
     //private ObjectBuild testobjecttmp = null;

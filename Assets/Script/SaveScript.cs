@@ -15,9 +15,12 @@ using System.Collections;
 public class SaveScript : MonoBehaviour {
 
     //********** 開始 **********// 
+    //key変数定義。SavedText文字列を格納
+
     string key = "SavedText";
     //********** 終了 **********// 
 
+    //string型変数str //InputField型　変数inputField //Text型変数Testtext
     string str;
     public InputField inputField;
     public Text Testtext;
@@ -33,7 +36,9 @@ public class SaveScript : MonoBehaviour {
         //********** 終了 **********// 
     }
 
-        public void SaveText () {
+    //SaveText関数。str変数にinputField.textを格納。
+    //つまりこことで。inputFieldのテキストコンポーネントにアクセすしている。
+    public void SaveText () {
         str = inputField.text;
             //********** 開始 **********//
             //保存キー「SavedText」で入力文字を保存

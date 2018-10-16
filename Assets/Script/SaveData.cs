@@ -13,6 +13,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 /// <summary>
 /// クラスを丸ごとJsonで保存するデータクラス
 /// </summary>
+/// http://kan-kikuchi.hatenablog.com/entry/Json_SaveData
+
+
+//SaveDataクラス。SaveData.Instance.Save();を実行すると、Jsonga保存される。
 [Serializable]
 public class SaveData : ISerializationCallbackReceiver
 {
@@ -20,6 +24,7 @@ public class SaveData : ISerializationCallbackReceiver
     //シングルトンを実装するための実体、初アクセス時にLoadする。
     private static SaveData _instance = null;
     public static SaveData Instance
+    //Instance = instanceという状態となる。
     {
         get
         {

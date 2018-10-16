@@ -31,10 +31,17 @@ public class ObjectSet : MonoBehaviour {
 		Ray     touchPointToRay = gameCamera.ScreenPointToRay( touchScreenPosition );
 		//hitInfo変数を定義。RaycastHitのインスタンスを格納
 		RaycastHit hitInfo = new RaycastHit();
-		//touchPointToRay  ここの処理が不明？
-		if( Physics.Raycast( touchPointToRay, out hitInfo ) )
-		{   //オブジェクトRaycastHitの情報を
-			Object.transform.position = hitInfo.point;
+        //touchPointToRay  ここの処理が不明？
+        //Physics.Raycast()はレイ、つまり直線がオブジェクトにヒットしたときにtrueを返します。
+        //オブジェクトと直線の交差判定ですね。
+        //out hitInfoとなっているのは、hitInfoに戻り値を格納する、という意味
+        //outは引数を必要を指定しない処理
+        //つまりhitInfoにはRaycastで当たった(gameCameraからスクリーンに向けて出したRayに当たった場所)オブジェクトが格納されている。
+        if ( Physics.Raycast( touchPointToRay, out hitInfo ) )
+		{
+            //オブジェクトRaycastHitの情報を指定
+            //touchPointToRayを引数とし、マウスの座標上のオブジェクト
+            Object.transform.position = hitInfo.point;
 		}
 
 		// デバッグ機能を利用して、スクリーンビューでレイが出ているか確認

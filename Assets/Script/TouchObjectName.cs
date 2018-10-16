@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //画面上でクリックしたオブジェクトを取得し、名前を表示する関数。
+//参考スクリプトなので、ゲームには不要
+//動作確認用にアタッチして使用している。
 
 public class TouchObject : MonoBehaviour {
 
