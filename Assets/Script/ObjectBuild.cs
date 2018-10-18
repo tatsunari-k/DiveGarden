@@ -25,6 +25,7 @@ public class ObjectBuild : MonoBehaviour
     public GameObject Stonecell5;
     public GameObject test;
     public ObjectBuild test2;   //クラスを変数にしてインスタンス化。この変数にゲームオブジェクトを渡す関数を設定する。
+    //private int i;
 
     //いつの間にかできていたスクリプト
     //public object JsonUptadaObj { get; private set; }
@@ -115,22 +116,63 @@ public class ObjectBuild : MonoBehaviour
             Vector3 pos = new Vector3(x, y += hight, z);
             Instantiate(CreateObject, pos, Quaternion.identity);
 
+            //int i = (int)x;
+            //int j = (int)y;
+            //int k = (int)z;
+            //int hight2 = (int)hight1;
 
             //Jsonの更新
             // FieldSellクラスのblockData1にアクセス
-            GameObject UpdadaObj = CreateObject;//作成オブジェクトを格納。
-            string UpdataObjName = UpdadaObj.name;//なぜオブジェクトの名前を取得できない？
+            GameObject UpdadaObj = CreateObject;        //作成オブジェクトを格納。
+            string UpdataObjName = UpdadaObj.name;
             //FieldSellクラスのblockData1内のデータにアクセス。
             //アクセス先はオブジェクトを生成する座標を元に、同様の配列部を指定。JsonUpdataにアクセスしblockData1内の座標及びオブジェクト名を更新。
-            fieldsell.blockData1[x, y += hight, z].Block.JsonUpdata(x, y += hight , z , UpdataObjName);
-
+            //public Block[, ,] blockData1 = new Block[100, 100, 100]と記述されているため、block1クラスは三次元配列処理により無数に存在する。
+            //ここで座標
+            //ブロック型に更新するインデックス番号のblockData1をblockUpdata内に格納
+            fieldsell.blockData1[(int)x,(int)y, (int)z].JsonUpdata((int)x, (int)y, (int)z, UpdataObjName, true);
             //三次元配列を一次元配列に変換する必要有。
-            itemArray2[index] = blockData1[x, y, z];
+            //            itemArray2[index] = blockData1[x, y, z];
+            //ログで確認
+            Debug.Log(fieldsell.blockData1[(int)x,(int)y, (int)z].blockName);
+
+            Block[] itemArray2 = new Block[1000000];
+
+            for (int _y = 0, index = 0; _y < fieldsell.blockData1.GetLength(1); _y++)
+            {
+                for (int _z = 0; _z < fieldsell.blockData1.GetLength(2); _z++)
+                {
+                    for (int _x = 0; _x < fieldsell.blockData1.GetLength(0); _x++)
+                    {
+                        //itemArray2配列にindex=0の時には[1,1,1]を格納している？
+                        itemArray2[index] = fieldsell.blockData1[_x, _y, _z];
+                        index++;
+                    }
+                }
+            }
 
             // jsonに変換
-            string json = JsonHelper.ToJson<Block>(fieldsell.itemArray2, true);
+            // string json = JsonHelper.ToJson<Block>(itemArray2, true);
 
-            Debug.Log(json);
+            //Debug.Log(json);
+           
+
+            //更新用の変数UpdatablockDataにJsonUpdata関数を利用して戻り値を格納する。
+            //UpdatablockData = Block.JsonUpdata(i, j += hight2, k, UpdataObjName,true);
+
+            //FieldSellクラスのblockData1へアクセス。更新する配列番号を指定。
+            //fieldsell.blockData1[i, j += hight2, k] = UpdatablockData;
+
+            //アクセス先はオブジェクトを生成する座標を元に、同様の配列部を指定。JsonUpdataにアクセスしblockData1内の座標及びオブジェクト名を更新。
+            //fieldsell.blockData1[x, y += hight, z] = Block.BlockJsonUpdata(x, y += hight , z , UpdataObjName);
+
+            //三次元配列を一次元配列に変換する必要有。
+            //itemArray2[index] = blockData1[x, y, z];
+
+            // jsonに変換
+            //string json = JsonHelper.ToJson<Block>(fieldsell.itemArray2, true);
+
+            //Debug.Log(json);
 
         }
     }

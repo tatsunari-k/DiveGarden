@@ -28,7 +28,6 @@ public class Block {
     }
 
 
-
     // Prefabの名前を設定する
     // nameを因数として受け取り、blockNameに格納
     public void SetBlockName(string name) {
@@ -56,10 +55,17 @@ public class Block {
         //JsonUtility.FromJsonOverwrite(JSONデータ, クラス); //　取得したJSONデータをクラスのプロパティに上書き
         //https://gametukurikata.com/program/savedata
 
-        Block block = new Block();
-        block.SetPosition(x, y, z);
-        block.SetBlockName(blockname);
-        block.putableUP = putablecheck;
+        this.xPos = x;      //配列データと同じ数字がxPosに入る
+        this.yPos = y;      //配列データと同じ数字がyPosに入る
+        this.zPos = z;      //配列データと同じ数字がzPosに入る
+        this.blockName = blockname;
+        putableUP = putablecheck;
+
+
+        //Block block = new Block();
+        //block.SetPosition(x, y, z);
+        //block.SetBlockName(blockname);
+        //block.putableUP = putablecheck;
         //JsonUtility.FromJsonOverwrite(jsonString, this);
         //Jsonデータの更新
         //ここでブロッククラスを配列化
@@ -80,7 +86,7 @@ public class FieldSell : MonoBehaviour
 {
     //3次元配列
     //100×100×100の空間座標を定義
-    //クラスを利用して配列化している？
+    //Blockクラスを配列を使用して一つのデータの塊にしている。
     //publicにして他のスクリプトからアクセス可能にする。
     public Block[, ,] blockData1 = new Block[100, 100, 100];
 
@@ -107,7 +113,7 @@ public class FieldSell : MonoBehaviour
                     // 一番下を地面に設定している。
                     if (y == 0) {
                         //ここでPrefabの名前を獲得できれば良い
-                        blockData1[x, y, z].SetBlockName ("GroundPrefab");
+                        blockData1 [x, y, z].SetBlockName ("GroundPrefab");
                     }
                 }
             }
@@ -135,7 +141,7 @@ public class FieldSell : MonoBehaviour
         Debug.Log (json);
 
 
-        //ここからはJsonからのデータ復旧方法を記述している。
+        //ここからはJsonからのデータ復元方法を記述している。
         // まずはJsonから2次元配列にする
         Block[] blockData3 = JsonHelper.FromJson<Block> (json);
 
