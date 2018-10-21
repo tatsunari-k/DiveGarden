@@ -218,7 +218,7 @@ public class FieldSell : MonoBehaviour
         Debug.Log(blockData4[99, 0, 0].blockName);
     }
 
-    void Updata(){
+    void Update(){
 
         if (Input.GetKeyDown(KeyCode.L))
         {
