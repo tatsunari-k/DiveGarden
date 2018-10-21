@@ -2179,7 +2179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78992b29e539d473fa07aa54ae786e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldsell: {fileID: 0}
+  fieldsell: {fileID: 293261081}
   CreateObject: {fileID: 1863367673597074, guid: 84b4c76eb15874815b6bf3e80dd75334,
     type: 2}
   Stonecell1: {fileID: 1863367673597074, guid: 84b4c76eb15874815b6bf3e80dd75334, type: 2}

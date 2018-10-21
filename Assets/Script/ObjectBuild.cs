@@ -97,6 +97,7 @@ public class ObjectBuild : MonoBehaviour
         //GameObjectクラス　obj変数定義。　getClickObject();関数を格納。
         //つまり、クリックしたオブジェクトを格納している。
         GameObject obj = getClickObject();
+
         //obj変数は空っぽと異なるか？　空っぽならfalse.何か格納されていたらtrue
         if (obj != null)
         {
@@ -121,6 +122,7 @@ public class ObjectBuild : MonoBehaviour
             //int k = (int)z;
             //int hight2 = (int)hight1;
 
+
             //Jsonの更新
             // FieldSellクラスのblockData1にアクセス
             GameObject UpdadaObj = CreateObject;        //作成オブジェクトを格納。
@@ -134,8 +136,10 @@ public class ObjectBuild : MonoBehaviour
             //三次元配列を一次元配列に変換する必要有。
             //            itemArray2[index] = blockData1[x, y, z];
             //ログで確認
-            Debug.Log(fieldsell.blockData1[(int)x,(int)y, (int)z].blockName);
+            Debug.Log(fieldsell.blockData1[(int)x,(int)y, (int)z].blockName); //作成したオブジェクトの名前が表示されていることを確認
+           
 
+            //更新
             Block[] itemArray2 = new Block[1000000];
 
             for (int _y = 0, index = 0; _y < fieldsell.blockData1.GetLength(1); _y++)
@@ -151,18 +155,13 @@ public class ObjectBuild : MonoBehaviour
                 }
             }
 
-            // jsonに変換
-            // string json = JsonHelper.ToJson<Block>(itemArray2, true);
 
-            //Debug.Log(json);
+            // 更新したblockData1を変数jsonを定義し更新
+            string json = JsonHelper.ToJson<Block>(itemArray2, true);
+            Debug.Log(json);
            
 
             //更新用の変数UpdatablockDataにJsonUpdata関数を利用して戻り値を格納する。
-            //UpdatablockData = Block.JsonUpdata(i, j += hight2, k, UpdataObjName,true);
-
-            //FieldSellクラスのblockData1へアクセス。更新する配列番号を指定。
-            //fieldsell.blockData1[i, j += hight2, k] = UpdatablockData;
-
             //アクセス先はオブジェクトを生成する座標を元に、同様の配列部を指定。JsonUpdataにアクセスしblockData1内の座標及びオブジェクト名を更新。
             //fieldsell.blockData1[x, y += hight, z] = Block.BlockJsonUpdata(x, y += hight , z , UpdataObjName);
 
